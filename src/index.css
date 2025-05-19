@@ -6,7 +6,7 @@ body {
 
 @import "tailwindcss";
 @plugin 'daisyui' {
-  themes: light --default;
+  themes: dark --default;
 }
 
 @plugin "daisyui/theme" {

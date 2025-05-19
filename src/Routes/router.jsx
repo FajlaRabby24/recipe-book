@@ -6,6 +6,7 @@ import Register from "../pages/Register";
 import AllRecipe from "../pages/AllRecipe";
 import MyRecipe from "../pages/MyRecipe";
 import AddRecipe from "../pages/AddRecipe";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -37,5 +38,9 @@ export const router = createBrowserRouter([
         Component: AddRecipe,
       },
     ],
+  },
+  {
+    path: "*",
+    Component: NotFound,
   },
 ]);
