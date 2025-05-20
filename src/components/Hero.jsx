@@ -45,7 +45,7 @@ const Hero = () => {
   }, [controls, controls2]);
 
   return (
-    <div className="h-[calc(80vh-65px)]   flex items-center justify-center">
+    <div className="h-[calc(80vh-65px)] mb-40  flex items-center justify-center">
       <div className="relative">
         {/* controls 1  */}
         <motion.h1

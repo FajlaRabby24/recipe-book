@@ -12,6 +12,7 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "daisyui": "^5.0.35",
+    "date-fns": "^4.1.0",
     "firebase": "^11.7.3",
     "motion": "^12.12.1",
     "react": "^19.1.0",
