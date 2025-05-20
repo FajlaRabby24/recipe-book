@@ -1,12 +1,48 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { AuthContext } from "../store/contexts";
+import { toast } from "react-toastify";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  console.log(location);
+  const { signInUser, googleLogin } = use(AuthContext);
+
+  const handleSignInUser = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signInUser(email, password)
+      .then((result) => {
+        toast.success("Login successfully!");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error("Something wrong! Please try again?");
+      });
+    console.log(email, password);
+  };
+
+  // sign in with google
+  const handleGoogleLogin = (params) => {
+    googleLogin()
+      .then((result) => {
+        toast.success("Login successfully!");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error("Something wrong! Please try again?");
+      });
+  };
+
   return (
     <div className="max-w-md bg border border-[#cccccc8f] my-16 mx-auto rounded-xl px-4 py-5">
       <h3 className="text-3xl font-semibold text-center mb-6 ">Login</h3>
-      <form>
+      <form onSubmit={handleSignInUser}>
         {/* email start  */}
         <legend className="font-semibold mb-1 mt-2">Email</legend>
         <label className="input validator w-full bg-base-300">
@@ -71,6 +107,10 @@ const Login = () => {
             {showPass ? <IoMdEyeOff size={25} /> : <IoMdEye size={25} />}
           </button>
         </label>
+        <div className="mt-1">
+          <Link className="text-xs link link-hover">Forgot Password?</Link>
+        </div>
+
         <p className="validator-hint hidden">
           Must be more than 8 characters, including
           <br />
@@ -81,9 +121,19 @@ const Login = () => {
         {/* password end */}
         <input type="submit" value={"Login"} className="btn w-full mt-6" />
       </form>
+      <p className="text-xs  mt-2 text-center">
+        I don't have an account?{" "}
+        <Link to={"/register"} className="text-blue-700 underline text-sm">
+          Register
+        </Link>
+      </p>
       <div className="divider">OR</div>
       {/* Google */}
-      <button className="btn bg-white text-black border-[#e5e5e5] w-full">
+      <button
+        onClick={handleGoogleLogin}
+        type="button"
+        className="btn bg-white text-black border-[#e5e5e5] w-full"
+      >
         <svg
           aria-label="Google logo"
           width="16"

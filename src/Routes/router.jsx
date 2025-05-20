@@ -7,6 +7,7 @@ import AllRecipe from "../pages/AllRecipe";
 import MyRecipe from "../pages/MyRecipe";
 import AddRecipe from "../pages/AddRecipe";
 import NotFound from "../pages/NotFound";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -31,11 +32,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "my-recipe",
-        Component: MyRecipe,
+        element: (
+          <PrivateRoute>
+            <MyRecipe />
+          </PrivateRoute>
+        ),
       },
       {
         path: "add-recipe",
-        Component: AddRecipe,
+        element: (
+          <PrivateRoute>
+            <AddRecipe />
+          </PrivateRoute>
+        ),
       },
     ],
   },

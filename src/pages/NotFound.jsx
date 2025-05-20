@@ -21,7 +21,7 @@ const NotFound = () => {
             Oops! This recipe seems to have gone off the menu.
           </p>
           <Link to={"/"}>
-            <button className="btn btn-primary btn-lg">Go to Homepage</button>
+            <button className="btn btn-warning btn-lg">Go to Homepage</button>
           </Link>
         </div>
       </div>

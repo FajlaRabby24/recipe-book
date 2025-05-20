@@ -1,13 +1,50 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-
+import { AuthContext } from "../store/contexts";
+import { toast } from "react-toastify";
+import { Link, useLocation, useNavigate } from "react-router";
 const Register = () => {
   const [showPass, setShowPass] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const { signUpUser, googleLogin } = use(AuthContext);
+
+  const handleSignInUser = (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    signUpUser(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.success("Registerd successfully!");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error("Something wrong! Please try again?");
+      });
+
+    console.log(name, photo, email, password);
+  };
+
+  // sign in with google
+  const handleGoogleLogin = (params) => {
+    googleLogin()
+      .then((result) => {
+        toast.success("Login successfully!");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error("Something wrong! Please try again?");
+      });
+  };
 
   return (
     <div className="max-w-md bg border border-[#cccccc8f] my-16 mx-auto rounded-xl px-4 py-5">
       <h3 className="text-3xl font-semibold text-center mb-6 ">Register</h3>
-      <form>
+      <form onSubmit={handleSignInUser}>
         {/* name start  */}
         <legend className="mb-1 mt-2 font-semibold">Name</legend>
         <label className="input validator w-full bg-base-300">
@@ -31,7 +68,6 @@ const Register = () => {
             type="text"
             required
             placeholder="Username"
-            pattern="[A-Za-z][A-Za-z0-9\-]*"
             minLength="3"
             maxLength="30"
             name="name"
@@ -148,9 +184,19 @@ const Register = () => {
         {/* password end */}
         <input type="submit" value={"Register"} className="btn w-full mt-6" />
       </form>
+      <p className="text-xs  mt-2 text-center">
+        I have already an account?{" "}
+        <Link to={"/login"} className="text-blue-700 underline text-sm">
+          Login
+        </Link>
+      </p>
       <div className="divider">OR</div>
       {/* Google */}
-      <button className="btn bg-white text-black border-[#e5e5e5] w-full">
+      <button
+        onClick={handleGoogleLogin}
+        type="button"
+        className="btn bg-white text-black border-[#e5e5e5] w-full"
+      >
         <svg
           aria-label="Google logo"
           width="16"
