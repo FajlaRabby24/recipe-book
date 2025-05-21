@@ -2,9 +2,11 @@ import React from "react";
 import { FcLike } from "react-icons/fc";
 import { useLoaderData } from "react-router";
 import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
 
 const RecipeDetails = () => {
   useScrollToTop();
+  useTitle("Recipe details");
 
   const recipe = useLoaderData();
   const {
