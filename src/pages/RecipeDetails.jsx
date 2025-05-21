@@ -1,10 +1,13 @@
-import React from "react";
+import React, { use, useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { useLoaderData } from "react-router";
 import useScrollToTop from "../hooks/useScrollToTop";
 import useTitle from "../hooks/useTitle";
+import { AuthContext } from "../store/contexts";
 
 const RecipeDetails = () => {
+  const { user } = use(AuthContext);
+
   useScrollToTop();
   useTitle("Recipe details");
 
@@ -21,6 +24,23 @@ const RecipeDetails = () => {
     selectedCategories,
     title,
   } = recipe;
+  const [liked, setLiked] = useState(parseInt(like));
+  const isOwnRecipe = recipe.email === user.email;
+  console.log(isOwnRecipe);
+
+  const handleLike = (id) => {
+    const newLikeCount = liked + 1;
+    setLiked(newLikeCount);
+
+    fetch(`http://localhost:5000/update-like/${id}?like=${newLikeCount}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("after patch", data);
+      });
+    console.log("after", liked);
+  };
 
   return (
     <div className=" mt-20 border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
@@ -36,7 +56,7 @@ const RecipeDetails = () => {
           <h1 className="text-2xl font-semibold">{title}</h1>{" "}
           <p className="flex items-center gap-1">
             <FcLike size={20} />
-            <span className="font-semibold">{like}</span>
+            <span className="font-semibold">{liked}</span>
             <span> people interested in this recipe</span>
           </p>
         </div>
@@ -76,7 +96,11 @@ const RecipeDetails = () => {
           Creation time:{" "}
           <span className="font-normal text-[#787777]">{creationTime}</span>
         </p>
-        <button className="btn">
+        <button
+          disabled={isOwnRecipe}
+          onClick={() => handleLike(_id)}
+          className="btn"
+        >
           <FcLike size={20} /> Like
         </button>
       </div>
