@@ -37,23 +37,33 @@ const RecipeDetails = () => {
         </div>
         <p className="font-semibold">
           Cuisine type:{" "}
-          <span className="font-normal text-[#787777]">{cuisine}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {cuisine}
+          </span>
         </p>
         <p className="font-semibold">
           Ingredients:{" "}
-          <span className="font-normal text-[#787777]">{ingredients}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {ingredients}
+          </span>
         </p>
         <p className="font-semibold">
           Instructions:{" "}
-          <span className="font-normal text-[#787777]">{instructions}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {instructions}
+          </span>
         </p>
         <p className="font-semibold">
           Instructions:{" "}
-          <span className="font-normal text-[#787777]">{instructions}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {instructions}
+          </span>
         </p>
         <p className="font-semibold">
           Preparation time:{" "}
-          <span className="font-normal text-[#787777]">{preparationTime}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {preparationTime}
+          </span>
         </p>
 
         <div className="grid grid-cols-3 gap-2 flex-wrap">
@@ -71,7 +81,9 @@ const RecipeDetails = () => {
         </div>
         <p className="font-semibold">
           Creation time:{" "}
-          <span className="font-normal text-[#787777]">{creationTime}</span>
+          <span className="font-normal text-[#787777] dark:text-[#ececec]">
+            {creationTime}
+          </span>
         </p>
         <button className="btn">
           <FcLike size={20} /> Like
