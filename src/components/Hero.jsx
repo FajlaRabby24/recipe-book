@@ -77,7 +77,7 @@ const Hero = () => {
         <motion.div
           initial={{ scale: 0, y: 100 }}
           animate={{ scale: 1, y: 0 }}
-          className="absolute -left-60 -bottom-52  backdrop-blur-md max-w-md px-5 py-3 rounded-xl z-50"
+          className="absolute -left-60 -bottom-52  backdrop-blur-md max-w-md px-5 py-3 rounded-xl z-20"
         >
           <p>
             A user-friendly recipe book app offering a variety of healthy,

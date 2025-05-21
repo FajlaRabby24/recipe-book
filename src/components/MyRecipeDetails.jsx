@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { FcLike } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Dialog from "../UI/Diolog";
 
 const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     _id,
     image,
@@ -45,6 +47,10 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
     });
   };
 
+  const handleModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className=" border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
       <figure className="w-1/3 ">
@@ -81,15 +87,19 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
         </p>
 
         <div className="flex items-center gap-2">
-          <button className="btn">
-            <FcLike size={20} /> Like
-          </button>
           <button onClick={() => handleDeleteRecipe(_id)} className="btn">
             <MdDelete size={20} /> Delete
           </button>
-          <button className="btn">
+          <button onClick={handleModal} className="btn">
             <FaEdit size={20} /> Update
           </button>
+          {isModalOpen && (
+            <Dialog
+              isModalOpen={isModalOpen}
+              recipe={recipe}
+              setIsModalOpen={setIsModalOpen}
+            />
+          )}
         </div>
       </div>
     </div>
