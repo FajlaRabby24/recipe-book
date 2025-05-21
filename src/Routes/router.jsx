@@ -8,6 +8,7 @@ import MyRecipe from "../pages/MyRecipe";
 import AddRecipe from "../pages/AddRecipe";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
+import RecipeDetails from "../pages/RecipeDetails";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,16 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddRecipe />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "recipe/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/recipe/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <RecipeDetails />
           </PrivateRoute>
         ),
       },
