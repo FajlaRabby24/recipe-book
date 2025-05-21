@@ -60,7 +60,7 @@ const AddRecipe = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Recipe added successfully!");
-          form.reset();
+          // form.reset();
         }
       });
   };

@@ -2,8 +2,9 @@ import React from "react";
 import { FcLike } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import Swal from "sweetalert2";
 
-const MyRecipeDetails = ({ recipe }) => {
+const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
   const {
     _id,
     image,
@@ -15,20 +16,34 @@ const MyRecipeDetails = ({ recipe }) => {
     title,
   } = recipe;
 
-  /**
- * Image.
-Title.
-Ingredients.
-Instructions.
-Cuisine Type
-Preparation Time
-Category
-Like count.
-Update button.
-Delete button.
-Clicking the delete b
-
- */
+  const handleDeleteRecipe = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/recipe/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              handleDeleteRecipeInUI(id);
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className=" border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
@@ -69,7 +84,7 @@ Clicking the delete b
           <button className="btn">
             <FcLike size={20} /> Like
           </button>
-          <button className="btn">
+          <button onClick={() => handleDeleteRecipe(_id)} className="btn">
             <MdDelete size={20} /> Delete
           </button>
           <button className="btn">
