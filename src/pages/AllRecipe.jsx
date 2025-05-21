@@ -34,6 +34,8 @@ const AllRecipe = () => {
         <div className="flex items-center gap-2">
           <h4 className="text-xl font-semibold">Filter:</h4>
           <select
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Filter by cuisine"
             name="cuisine"
             defaultValue="Filter"
             className="select font-semibold w-fit"

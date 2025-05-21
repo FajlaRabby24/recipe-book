@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import Dialog from "../UI/Diolog";
+import { Tooltip } from "react-tooltip";
 
 const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -53,6 +54,7 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
 
   return (
     <div className=" border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
+      <Tooltip id="my-tooltip" />
       <figure className="w-1/3 ">
         <img
           src={image}
@@ -63,7 +65,13 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
       <div className="w-2/3 py-5 pr-5 space-y-2 ">
         <div className="flex items-center flex-wrap gap-10">
           <h1 className="text-2xl font-semibold">{title}</h1>{" "}
-          <p className="flex items-center gap-1">
+          <p
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={`${
+              like == 0 ? "No" : like
+            } people interested in this recipe`}
+            className="flex items-center gap-1"
+          >
             <FcLike size={20} />
             <span className="font-semibold">{like}</span>
             <span> people interested in this recipe</span>
@@ -95,10 +103,20 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
         )}
 
         <div className="flex items-center gap-2">
-          <button onClick={() => handleDeleteRecipe(_id)} className="btn">
+          <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Delete recipe"
+            onClick={() => handleDeleteRecipe(_id)}
+            className="btn"
+          >
             <MdDelete size={20} /> Delete
           </button>
-          <button onClick={handleModal} className="btn">
+          <button
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Update recipe"
+            onClick={handleModal}
+            className="btn"
+          >
             <FaEdit size={20} /> Update
           </button>
           {isModalOpen && (

@@ -1,10 +1,12 @@
 import { Outlet } from "react-router";
 import Header from "./Header";
 import Footer from "./Footer";
+import { Tooltip } from "react-tooltip";
 
 const MainLayout = () => {
   return (
     <div>
+      <Tooltip id="my-tooltip" />
       <header className="sticky top-0 z-50 backdrop-blur-2xl">
         <Header />
       </header>

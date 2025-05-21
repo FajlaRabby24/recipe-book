@@ -6,6 +6,7 @@ import { MdDarkMode } from "react-icons/md";
 import { AuthContext } from "../store/contexts";
 import { toast } from "react-toastify";
 import defaultUser from "../assets/images/defaultUser.png";
+import { Tooltip } from "react-tooltip";
 
 const links = (
   <div className="flex items-center gap-4">
@@ -47,6 +48,7 @@ const Header = () => {
 
   return (
     <nav className="navbar   max-w-7xl mx-auto items-center ">
+      <Tooltip id="my-tooltip" />
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={1} role="button" className="btn btn-ghost lg:hidden">
@@ -70,23 +72,7 @@ const Header = () => {
             tabIndex={1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
+            {links}
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1">
@@ -98,7 +84,11 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-3 items-center">
-        <label className="swap swap-rotate ">
+        <label
+          data-tooltip-id="my-tooltip"
+          data-tooltip-content="Themes"
+          className="swap swap-rotate "
+        >
           {/* this hidden checkbox controls the state */}
           <input type="checkbox" className="theme-controller" value="dark" />
           {/* sun icon */}
@@ -120,37 +110,37 @@ const Header = () => {
           </svg>
         </label>
         {user ? (
-          <>
-            <div className="dropdown ml-5 ">
-              <div className="avatar avatar-online" tabIndex={0}>
-                <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring-2 ring-offset-2">
-                  <img
-                    src={user.photoURL || defaultUser}
-                    alt="user profile image"
-                    className="cursor-pointer"
-                  />
-                </div>
+          <div className="dropdown ml-5 ">
+            <div
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="profile"
+              className="avatar avatar-online"
+              tabIndex={0}
+            >
+              <div className="ring-primary ring-offset-base-100 w-9 rounded-full ring-2 ring-offset-2">
+                <img
+                  src={user.photoURL || defaultUser}
+                  alt="user profile image"
+                  className="cursor-pointer"
+                />
               </div>
-              <ul
-                tabIndex={0}
-                className="dropdown-content menu bg-base-100 dark:bg-white rounded-box z-1  space-y-1 w-max p-2 shadow-sm"
-              >
-                <li>
-                  <h3 className="text-xl dark:text-black font-semibold">
-                    {user && user?.displayName}
-                  </h3>
-                </li>
-                <li>
-                  <button
-                    onClick={handleSignOutUser}
-                    className="btn btn-warning"
-                  >
-                    Sign Out
-                  </button>
-                </li>
-              </ul>
             </div>
-          </>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 dark:bg-white rounded-box z-1  space-y-1 w-max p-2 shadow-sm"
+            >
+              <li>
+                <h3 className="text-xl dark:text-black font-semibold">
+                  {user && user?.displayName}
+                </h3>
+              </li>
+              <li>
+                <button onClick={handleSignOutUser} className="btn btn-warning">
+                  Sign Out
+                </button>
+              </li>
+            </ul>
+          </div>
         ) : (
           <>
             <Link to={"/login"}>

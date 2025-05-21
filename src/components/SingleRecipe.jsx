@@ -16,17 +16,24 @@ const SingleRecipe = ({ recipe }) => {
       <div className="px-4 py-3 space-y-2">
         <h2 className="text-2xl font-semibold">{title}</h2>
         <div className="flex justify-between items-center">
-          <p className="font-semibol">
-            Preparation Time:{" "}
-            <span className="text-[#ccccc8c]">{preparationTime} min</span>
+          <p className="text-g font-sembold">
+            Cuisine Type: <span className="text-[#787777]">{cuisine}</span>
           </p>
-          <p className="flex items-center gap-1">
+
+          <p
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content={`${
+              like == 0 ? "No" : like
+            } people interested in this recipe`}
+            className="flex items-center gap-1"
+          >
             <FcLike size={20} />
             <span className="font-semibold">{like}</span>
           </p>
         </div>
-        <p className="text-g font-sembold">
-          Cuisine Type: <span className="text-[#787777]">{cuisine}</span>
+        <p className="font-semibol">
+          Preparation Time:{" "}
+          <span className="text-[#ccccc8c]">{preparationTime} min</span>
         </p>
         <Link to={`/recipe/${_id}`}>
           <button className="btn btn-warning">Details</button>
