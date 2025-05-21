@@ -7,7 +7,11 @@ const SingleRecipe = ({ recipe }) => {
   return (
     <div className="card bg-base-100  shadow-sm">
       <figure>
-        <img src={image} alt={`${title} image`} />
+        <img
+          className="max-w-[302px] max-h-[250px] min-w-[302px] object-cover min-h-[250px]"
+          src={image}
+          alt={`${title} image`}
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{title}</h2>

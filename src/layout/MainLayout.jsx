@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const MainLayout = () => {
   return (
     <div>
-      <header>
+      <header className="sticky top-0 z-20 backdrop-blur-2xl">
         <Header />
       </header>
       <main className="max-w-7xl mx-auto min-h-[calc(100vh-402px)]">

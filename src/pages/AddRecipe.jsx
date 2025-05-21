@@ -96,10 +96,10 @@ const AddRecipe = () => {
               className="select w-full"
             >
               <option disabled={true}>Cuisine type</option>
-              <option value={"italian"}>Italian</option>
-              <option value={"mexican"}>Mexican</option>
-              <option value={"chinese"}>Chinese</option>
-              <option value={"bangladesh"}>Bangladesh</option>
+              <option value={"Italian"}>Italian</option>
+              <option value={"Mexican"}>Mexican</option>
+              <option value={"Chinese"}>Chinese</option>
+              <option value={"Bangladesh"}>Bangladesh</option>
             </select>
 
             {/* Categories    */}

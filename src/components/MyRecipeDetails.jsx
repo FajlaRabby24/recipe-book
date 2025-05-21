@@ -1,14 +1,9 @@
 import React from "react";
 import { FcLike } from "react-icons/fc";
-import { useLoaderData } from "react-router";
-import useScrollToTop from "../hooks/useScrollToTop";
-import useTitle from "../hooks/useTitle";
+import { MdDelete } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 
-const RecipeDetails = () => {
-  useScrollToTop();
-  useTitle("Recipe details");
-
-  const recipe = useLoaderData();
+const MyRecipeDetails = ({ recipe }) => {
   const {
     _id,
     image,
@@ -17,17 +12,30 @@ const RecipeDetails = () => {
     ingredients,
     instructions,
     like,
-    preparationTime,
-    selectedCategories,
     title,
   } = recipe;
 
+  /**
+ * Image.
+Title.
+Ingredients.
+Instructions.
+Cuisine Type
+Preparation Time
+Category
+Like count.
+Update button.
+Delete button.
+Clicking the delete b
+
+ */
+
   return (
-    <div className=" mt-20 border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
+    <div className=" border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
       <figure className="w-1/3 ">
         <img
           src={image}
-          className="w-full object-cover h-full"
+          className="max-w-[415px] max-h-[350px] min-w-[415px] min-h-[350px] object-cover "
           alt="recipe image"
         />
       </figure>
@@ -53,35 +61,24 @@ const RecipeDetails = () => {
           <span className="font-normal text-[#787777]">{instructions}</span>
         </p>
         <p className="font-semibold">
-          Preparation time:{" "}
-          <span className="font-normal text-[#787777]">
-            {preparationTime} min
-          </span>
-        </p>
-
-        <div className="flex gap-3 flex-wrap">
-          {selectedCategories.map((category, index) => (
-            <p key={index} className="flex gap-1 ">
-              <input
-                type="checkbox"
-                checked
-                readOnly
-                className="checkbox checkbox-primary checkbox-xs cursor-text"
-              />
-              <span>{category}</span>
-            </p>
-          ))}
-        </div>
-        <p className="font-semibold">
           Creation time:{" "}
           <span className="font-normal text-[#787777]">{creationTime}</span>
         </p>
-        <button className="btn">
-          <FcLike size={20} /> Like
-        </button>
+
+        <div className="flex items-center gap-2">
+          <button className="btn">
+            <FcLike size={20} /> Like
+          </button>
+          <button className="btn">
+            <MdDelete size={20} /> Delete
+          </button>
+          <button className="btn">
+            <FaEdit size={20} /> Update
+          </button>
+        </div>
       </div>
     </div>
   );
 };
 
-export default RecipeDetails;
+export default MyRecipeDetails;
