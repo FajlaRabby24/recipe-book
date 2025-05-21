@@ -1,8 +1,11 @@
 import React from "react";
 import { FcLike } from "react-icons/fc";
 import { useLoaderData } from "react-router";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const RecipeDetails = () => {
+  useScrollToTop();
+
   const recipe = useLoaderData();
   const {
     _id,
@@ -18,7 +21,7 @@ const RecipeDetails = () => {
   } = recipe;
 
   return (
-    <div className=" mt-20 border border-[#cccccca0] rounded-lg flex lg:flex-row gap-4">
+    <div className=" mt-20 border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
       <figure className="w-1/3 ">
         <img
           src={image}
@@ -26,7 +29,7 @@ const RecipeDetails = () => {
           alt="recipe image"
         />
       </figure>
-      <div className="w-2/3 py-5 px-5 space-y-2 ">
+      <div className="w-2/3 py-5 pr-5 space-y-2 ">
         <div className="flex items-center flex-wrap gap-10">
           <h1 className="text-2xl font-semibold">{title}</h1>{" "}
           <p className="flex items-center gap-1">
@@ -37,33 +40,23 @@ const RecipeDetails = () => {
         </div>
         <p className="font-semibold">
           Cuisine type:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {cuisine}
-          </span>
+          <span className="font-normal text-[#787777]">{cuisine}</span>
         </p>
         <p className="font-semibold">
           Ingredients:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {ingredients}
-          </span>
+          <span className="font-normal text-[#787777]">{ingredients}</span>
         </p>
         <p className="font-semibold">
           Instructions:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {instructions}
-          </span>
+          <span className="font-normal text-[#787777]">{instructions}</span>
         </p>
         <p className="font-semibold">
           Instructions:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {instructions}
-          </span>
+          <span className="font-normal text-[#787777]">{instructions}</span>
         </p>
         <p className="font-semibold">
           Preparation time:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {preparationTime}
-          </span>
+          <span className="font-normal text-[#787777]">{preparationTime}</span>
         </p>
 
         <div className="grid grid-cols-3 gap-2 flex-wrap">
@@ -81,9 +74,7 @@ const RecipeDetails = () => {
         </div>
         <p className="font-semibold">
           Creation time:{" "}
-          <span className="font-normal text-[#787777] dark:text-[#ececec]">
-            {creationTime}
-          </span>
+          <span className="font-normal text-[#787777]">{creationTime}</span>
         </p>
         <button className="btn">
           <FcLike size={20} /> Like
