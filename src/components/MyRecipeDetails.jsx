@@ -56,7 +56,7 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
       <figure className="w-1/3 ">
         <img
           src={image}
-          className="max-w-[415px] max-h-[350px] min-w-[415px] min-h-[350px] object-cover "
+          className="max-w-[415px] rounded-lg max-h-[350px] min-w-[415px] min-h-[350px] object-cover "
           alt="recipe image"
         />
       </figure>
@@ -85,6 +85,14 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
           Creation time:{" "}
           <span className="font-normal text-[#787777]">{creationTime}</span>
         </p>
+        {recipe?.updatedTime && (
+          <p className="font-semibold">
+            Last update:{" "}
+            <span className="font-normal text-[#787777]">
+              {recipe?.updatedTime}
+            </span>
+          </p>
+        )}
 
         <div className="flex items-center gap-2">
           <button onClick={() => handleDeleteRecipe(_id)} className="btn">

@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import SingleRecipe from "../components/SingleRecipe";
 import NoRecipe from "../components/NoRecipe";
+import useScrollToTop from "../hooks/useScrollToTop";
 
 const AllRecipe = () => {
   const initialAllRecipe = useLoaderData();
   const [allRecipe, setAllRecipe] = useState(initialAllRecipe);
   const [noRecipe, setNoRecipe] = useState(false);
+
+  useScrollToTop();
 
   const handleFilterCuisine = (e) => {
     const selected = e.target.value.toLowerCase();
@@ -33,7 +36,7 @@ const AllRecipe = () => {
           <select
             name="cuisine"
             defaultValue="Filter"
-            className="select font-semibold  w-fit"
+            className="select font-semibold w-fit"
             onChange={handleFilterCuisine}
           >
             <option value={"all"}>All</option>
