@@ -8,33 +8,40 @@ import { toast } from "react-toastify";
 import defaultUser from "../assets/images/defaultUser.png";
 import { Tooltip } from "react-tooltip";
 
-const links = (
-  <div className="flex flex-col md:flex-row  items-center gap-4">
-    <li>
-      <NavLink className={"font-semibold"} to={"/"}>
-        Home
-      </NavLink>
-    </li>
-    <li>
-      <NavLink className={"font-semibold"} to={"/all-recipe"}>
-        All recipe
-      </NavLink>
-    </li>
-    <li>
-      <NavLink className={"font-semibold"} to={"/add-recipe"}>
-        Add recipe
-      </NavLink>
-    </li>
-    <li>
-      <NavLink className={"font-semibold"} to={"/my-recipe"}>
-        My recipe
-      </NavLink>
-    </li>
-  </div>
-);
-
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
+
+  const links = (
+    <div className="flex flex-col md:flex-row  items-center gap-4">
+      <li>
+        <NavLink className={"font-semibold"} to={"/"}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className={"font-semibold"} to={"/all-recipe"}>
+          All recipe
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className={"font-semibold"} to={"/add-recipe"}>
+          Add recipe
+        </NavLink>
+      </li>
+      <li>
+        <NavLink className={"font-semibold"} to={"/my-recipe"}>
+          My recipe
+        </NavLink>
+      </li>
+      {user && (
+        <li>
+          <NavLink className={"font-semibold"} to={"/feedback"}>
+            Feedbacks
+          </NavLink>
+        </li>
+      )}
+    </div>
+  );
 
   const handleSignOutUser = () => {
     signOutUser()

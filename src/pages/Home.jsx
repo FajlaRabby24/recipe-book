@@ -2,8 +2,8 @@ import React from "react";
 import Hero from "../components/Hero";
 import TopRecipes from "../layout/TopRecipes";
 import { useLoaderData } from "react-router";
-import HealthTips from "../layout/HealthTips";
 import VegiesFood from "../layout/VegiesFood";
+import Feedback from "../layout/Feedback";
 
 const Home = () => {
   const topRecipes = useLoaderData();
@@ -12,7 +12,7 @@ const Home = () => {
       <Hero />
       <TopRecipes topRecipes={topRecipes} />
       <VegiesFood />
-      <HealthTips />
+      <Feedback />
     </div>
   );
 };

@@ -9,6 +9,8 @@ import AddRecipe from "../pages/AddRecipe";
 import NotFound from "../pages/NotFound";
 import PrivateRoute from "./PrivateRoute";
 import RecipeDetails from "../pages/RecipeDetails";
+import Feedback from "../layout/Feedback";
+import AllFeedback from "../pages/AllFeedback";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +51,15 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "feedback",
+        element: (
+          <PrivateRoute>
+            <AllFeedback />
+          </PrivateRoute>
+        ),
+      },
+
       {
         path: "recipe/:id",
         loader: ({ params }) =>

@@ -8,7 +8,6 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
   const { signInUser, googleLogin } = use(AuthContext);
 
   const handleSignInUser = (e) => {
@@ -40,7 +39,7 @@ const Login = () => {
   };
 
   return (
-    <div className="max-w-md bg border border-[#cccccc8f] my-16 mx-auto rounded-xl px-4 py-5">
+    <div className="max-w-md  border border-[#cccccc8f] my-16 mx-auto rounded-xl px-4 py-5">
       <h3 className="text-3xl font-semibold text-center mb-6 ">Login</h3>
       <form onSubmit={handleSignInUser}>
         {/* email start  */}

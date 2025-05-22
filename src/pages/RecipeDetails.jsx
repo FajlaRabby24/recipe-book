@@ -4,10 +4,12 @@ import { useLoaderData, useNavigate } from "react-router";
 import useScrollToTop from "../hooks/useScrollToTop";
 import useTitle from "../hooks/useTitle";
 import { MdKeyboardArrowLeft } from "react-icons/md";
-
+import { MdOutlineRateReview } from "react-icons/md";
 import { AuthContext } from "../store/contexts";
+import AddFeedbackDiolog from "../UI/AddFeedbackDiolog";
 
 const RecipeDetails = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = use(AuthContext);
 
@@ -29,7 +31,6 @@ const RecipeDetails = () => {
   } = recipe;
   const [liked, setLiked] = useState(parseInt(like));
   const isOwnRecipe = recipe.email === user.email;
-  console.log(isOwnRecipe);
 
   const handleLike = (id) => {
     const newLikeCount = liked + 1;
@@ -44,6 +45,12 @@ const RecipeDetails = () => {
       });
     console.log("after", liked);
   };
+
+  const handleModal = () => {
+    setIsModalOpen(true);
+  };
+
+  console.log(isModalOpen);
 
   return (
     <div className="px-3 pb-40  pt-10 ">
@@ -112,13 +119,34 @@ const RecipeDetails = () => {
             Creation time:{" "}
             <span className="font-normal text-[#787777]">{creationTime}</span>
           </p>
-          <button
-            disabled={isOwnRecipe}
-            onClick={() => handleLike(_id)}
-            className="btn"
-          >
-            <FcLike size={20} /> Like
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Like this recipe"
+              disabled={isOwnRecipe}
+              onClick={() => handleLike(_id)}
+              className="btn"
+            >
+              <FcLike size={20} /> Like
+            </button>
+            <button
+              onClick={handleModal}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content="Add a feedback"
+              disabled={isOwnRecipe}
+              className="btn"
+            >
+              <MdOutlineRateReview size={20} />
+              Add feedback
+            </button>
+            {isModalOpen && (
+              <AddFeedbackDiolog
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                recipe={recipe}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
