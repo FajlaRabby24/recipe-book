@@ -53,17 +53,17 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
   };
 
   return (
-    <div className=" border border-[#cccccca0] rounded-lg flex lg:flex-row gap-8">
+    <div className=" border border-[#cccccca0] rounded-lg  flex flex-col lg:flex-row lg:gap-8">
       <Tooltip id="my-tooltip" />
-      <figure className="w-1/3 ">
+      <figure className="md:w-1/3 ">
         <img
           src={image}
-          className="max-w-[415px] rounded-lg max-h-[350px] min-w-[415px] min-h-[350px] object-cover "
+          className="md:max-w-[415px] w-full rounded-lg max-h-[350px] md:min-w-[415px] min-h-[350px] object-cover "
           alt="recipe image"
         />
       </figure>
-      <div className="w-2/3 py-5 pr-5 space-y-2 ">
-        <div className="flex items-center flex-wrap gap-10">
+      <div className="md:w-2/3 py-5 px-2 lg:pr-5 space-y-2 ">
+        <div className="flex items-center flex-wrap gap-2 lg:gap-10">
           <h1 className="text-2xl font-semibold">{title}</h1>{" "}
           <p
             data-tooltip-id="my-tooltip"

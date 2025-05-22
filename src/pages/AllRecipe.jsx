@@ -28,11 +28,11 @@ const AllRecipe = () => {
   };
 
   return (
-    <div className="pt-12 pb-52">
+    <div className="pt-12 px-3 pb-52">
       <div className="mb-6 flex items-center justify-between gap-8">
-        <h1 className="text-3xl font-semibold ">All Recipe</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold ">All Recipe</h1>
         <div className="flex items-center gap-2">
-          <h4 className="text-xl font-semibold">Filter:</h4>
+          <h4 className="text-g md:text-xl font-semibold">Filter:</h4>
           <select
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Filter by cuisine"

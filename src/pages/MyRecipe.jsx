@@ -23,8 +23,8 @@ const MyRecipe = () => {
   };
 
   return (
-    <div className="pt-16 pb-48">
-      <h1 className="text-2xl font-semibold mb-8">My Recipe</h1>
+    <div className="pt-16 px-3 pb-48">
+      <h1 className="text-2xl font-semibold mb-4 md:mb-8">My Recipe</h1>
       <div className="grid grid-cols-1 gap-4">
         {myRecipes.map((recipe) => (
           <MyRecipeDetails

@@ -1,5 +1,5 @@
 import logo from "../assets/images/logo.png";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { IoLogoYoutube } from "react-icons/io";
@@ -12,7 +12,7 @@ const Footer = () => {
         <aside>
           <img src={logo} alt="logo" className="w-1/7" />
           <p className="font-bold text-xl">Recipe Book App</p>
-          <p className="flex gap-3 font-semibold">
+          <p className="flex flex-col md:flex-row gap-3 font-semibold">
             <span>Phone: +001258795</span>
             <span>Email: abc@gmail.com</span>
           </p>
@@ -50,7 +50,7 @@ const Footer = () => {
           </div>
         </nav>
       </div>
-      <p className="text-center py-2  ">
+      <p className="text-center sm:font-normal py-2  ">
         Copyright © {new Date().getFullYear()} - All right reserved by
         recipe.org
       </p>

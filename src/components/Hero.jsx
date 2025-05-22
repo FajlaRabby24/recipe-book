@@ -5,26 +5,68 @@ import fruits from "../assets/images/fruits.png";
 import salad from "../assets/images/salad.png";
 import noddles from "../assets/images/noddles.png";
 import biryani from "../assets/images/biryani.png";
+import snacks from "../assets/images/snacks.png";
+import stick from "../assets/images/stick.png";
+import butter from "../assets/images/butter.png";
 
-const images = [chicken, fruits, salad, noddles, biryani];
+const images = [
+  chicken,
+  fruits,
+  salad,
+  noddles,
+  biryani,
+  butter,
+  snacks,
+  stick,
+];
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(true);
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(true);
-  const controls = useAnimation();
-  const controls2 = useAnimation();
+  const desktopControls = useAnimation();
+  const desktopControls2 = useAnimation();
+  const mobileControls = useAnimation();
+  const mobileControls2 = useAnimation();
 
+  // useEffect(() => {
+  //   // return () => window.removeEventListener("resize", checkDevice);
+  // }, []);
+
+  console.log(isMobile);
   useEffect(() => {
-    // controls 1
-    controls.start({
+    const checkDevice = () => {
+      setIsMobile(window.innerWidth <= 768); // or use your preferred breakpoint
+    };
+
+    checkDevice();
+    window.addEventListener("resize", checkDevice);
+    // mobileControls
+    mobileControls.start({
+      x: 100,
+      y: -200,
+      scale: 1,
+      transition: { duration: 0.5, bounce: 1, delay: 0.4 },
+    });
+
+    // mobileControls2
+    mobileControls2.start({
+      x: 0,
+      y: 200,
+      scale: 1,
+      transition: { duration: 0.5, bounce: 1, delay: 0.4 },
+    });
+
+    //desktopControls
+    desktopControls.start({
       x: -330,
       y: -100,
       scale: 1,
       transition: { duration: 0.5, bounce: 1, delay: 0.4 },
     });
 
-    // control 2
-    controls2.start({
+    // desktopControls2
+    desktopControls2.start({
       x: 420,
       y: 220,
       scale: 1,
@@ -42,27 +84,31 @@ const Hero = () => {
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [controls, controls2]);
+  }, [mobileControls, mobileControls2, desktopControls, desktopControls2]);
 
   return (
-    <div className="h-[calc(80vh-65px)] mb-40  flex items-center justify-center">
-      <div className="relative">
+    <div
+      className="min-h-screen lg:h-[calc(80vh-65px)] flex -mt-24 items-center    md:justify-center"
+      style={{ overflowX: "hidden" }}
+    >
+      <div className="relative  w-full">
         {/* controls 1  */}
         <motion.h1
-          animate={controls}
+          animate={isMobile ? mobileControls : desktopControls}
           initial={{ scale: 0 }}
-          className="text-7xl  font-semibold"
+          className="text-6xl md:text-7xl  font-semibold"
         >
           Healty
         </motion.h1>
         {/* image animation  */}
-        <AnimatePresence mode="wait">
+        {/* <figure className="w-full bg-red-500"> */}
+        <AnimatePresence mode="wait" className="">
           {show && (
             <motion.img
               key={images[current]}
               src={images[current]}
               alt="Animated Slide"
-              className=" object-cover absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  p-4 rounded  mx-auto max-w-[650px] z-20"
+              className=" sm:px-2 -full object-cover absolute top-1/2 md:top-1/2 left-1/2 md:transform -translate-x-1/2 -translate-y-1/2 min-h-[370px] px-2 rounded  mx-auto  lg:max-w-[650px]  z-20"
               initial={{
                 scale: 0.7,
                 opacity: 0,
@@ -73,11 +119,12 @@ const Hero = () => {
             />
           )}
         </AnimatePresence>
+        {/* </figure> */}
         {/* overlay card  */}
         <motion.div
           initial={{ scale: 0, y: 100 }}
           animate={{ scale: 1, y: 0 }}
-          className="absolute -left-60 -bottom-52  backdrop-blur-md max-w-md px-5 py-3 rounded-xl z-20"
+          className="absolute  right-1 left-1  md:-left-60 -bottom-[360px] md:-bottom-52  backdrop-blur-md max-w-fit  border border-[#cccccc46] md:border-0 md:max-w-md px-2 md:px-5 py-2  md:py-3 rounded-xl z-20"
         >
           <p>
             A user-friendly recipe book app offering a variety of healthy,
@@ -87,9 +134,9 @@ const Hero = () => {
         </motion.div>
         {/* controls 2  */}
         <motion.h1
-          animate={controls2}
+          animate={isMobile ? mobileControls2 : desktopControls2}
           initial={{ scale: 0 }}
-          className="text-7xl font-semibold"
+          className="text-6xl text-center   md:text-7xl font-semibold"
         >
           Starts Here
         </motion.h1>

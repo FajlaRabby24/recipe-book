@@ -9,7 +9,7 @@ import defaultUser from "../assets/images/defaultUser.png";
 import { Tooltip } from "react-tooltip";
 
 const links = (
-  <div className="flex items-center gap-4">
+  <div className="flex flex-col md:flex-row  items-center gap-4">
     <li>
       <NavLink className={"font-semibold"} to={"/"}>
         Home
@@ -47,14 +47,18 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar   max-w-7xl mx-auto items-center ">
+    <nav className="navbar px-3   max-w-7xl mx-auto items-center ">
       <Tooltip id="my-tooltip" />
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={1} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={1}
+            role="button"
+            className="btn px-0 mr-2 btn-ghost lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -77,7 +81,9 @@ const Header = () => {
         </div>
         <Link to={"/"} className="flex items-center gap-1">
           <img className="w-[40px]" src={logo} alt="logo" />
-          <h1 className="text-2xl font-semibold">Recipe Book</h1>
+          <h1 className="text-2xl hidden md:block font-semibold">
+            Recipe Book
+          </h1>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -90,7 +96,7 @@ const Header = () => {
           className="swap swap-rotate "
         >
           {/* this hidden checkbox controls the state */}
-          <input type="checkbox" className="theme-controller" value="dark" />
+          <input type="checkbox" className="theme-controller" value="light" />
           {/* sun icon */}
           <svg
             className="swap-off h-8 w-8 fill-current"
@@ -110,7 +116,7 @@ const Header = () => {
           </svg>
         </label>
         {user ? (
-          <div className="dropdown ml-5 ">
+          <div className="dropdown dropdown-end  ml-5 ">
             <div
               data-tooltip-id="my-tooltip"
               data-tooltip-content="profile"
@@ -127,7 +133,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="dropdown-content menu bg-base-100 dark:bg-white rounded-box z-1  space-y-1 w-max p-2 shadow-sm"
+              className="dropdown-content menu bg-base-100 dark:bg-white rounded-box z-1  space-y-1 w-max p-2    shadow-sm"
             >
               <li>
                 <h3 className="text-xl dark:text-black font-semibold">

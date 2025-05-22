@@ -69,19 +69,21 @@ const AddRecipe = () => {
   };
 
   return (
-    <div className="pt-16 pb-40">
-      <h1 className="text-3xl font-semibold text-center">Add Recipe</h1>
-      <p className="mt-2 mb-7 text-center max-w-4xl mx-auto">
+    <div className="pt-16 px-3 pb-40">
+      <h1 className="text-2xl md:text-3xl font-bold md:font-semibold text-center">
+        Add Recipe
+      </h1>
+      <p className="mt-2 mb-7  text-center max-w-4xl mx-auto">
         Easily add your own healthy recipes with step-by-step instructions,
         ingredients, and images. Customize meals, track nutrition, and build
         your personal collection of favorite dishes in one convenient place.
       </p>
       <form
         onSubmit={handleAddRecipe}
-        className=" border border-[#cccccc9c] rounded-lg  px-4 py-3"
+        className=" border border-[#cccccc9c] rounded-lg px-2 md:px-4 py-3 "
       >
-        <div className="flex gap-5">
-          <div className="bg-mber-100 w-1/2">
+        <div className="flex flex-col gap-5">
+          <div className="bg-mber-100 md:w-1/2">
             {/* title  */}
             <legend className="fieldset-legend ">Title</legend>
             <input
@@ -127,11 +129,11 @@ const AddRecipe = () => {
             <textarea
               required
               name="instructions"
-              className="textarea h-20 w-full resize-none"
+              className="textarea h-20 w-full "
               placeholder="Instructions...."
             ></textarea>
           </div>
-          <div className="bgamber-100 w-1/2">
+          <div className="bgamber-100 md:w-1/2">
             {/* image  */}
             <legend className="fieldset-legend">Image</legend>
             <input
@@ -168,7 +170,7 @@ const AddRecipe = () => {
             <textarea
               required
               name="ingredients"
-              className="textarea h-20 w-full resize-none"
+              className="textarea h-20 w-full"
               placeholder="Ingredients"
             ></textarea>
           </div>
