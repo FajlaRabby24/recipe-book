@@ -52,7 +52,8 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "feedback",
+        path: "allFeedback",
+        loader: () => fetch(`http://localhost:5000/feedbacks`),
         element: (
           <PrivateRoute>
             <AllFeedback />

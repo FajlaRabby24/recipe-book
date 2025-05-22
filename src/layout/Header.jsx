@@ -35,7 +35,7 @@ const Header = () => {
       </li>
       {user && (
         <li>
-          <NavLink className={"font-semibold"} to={"/feedback"}>
+          <NavLink className={"font-semibold"} to={"/allFeedback"}>
             Feedbacks
           </NavLink>
         </li>

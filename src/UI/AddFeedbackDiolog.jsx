@@ -8,7 +8,7 @@ const customStyles = {
   content: {
     top: "50%",
     left: "50%",
-    width: "1000px",
+    // width: "1000px",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
@@ -60,11 +60,11 @@ const AddFeedbackDiolog = ({ isModalOpen, setIsModalOpen, recipe }) => {
           className=" border border-[#cccccc9c] rounded-lg  px-4 py-3"
           //  onSubmit={handleAUpdateRecipe}
         >
-          <div className="flex gap-5">
-            <figure className=" w-1/2">
+          <div className="flex flex-col md:flex-row gap-5">
+            <figure className=" md:w-1/2">
               <img src={image} alt="feedback image" />
             </figure>
-            <div className="bgamber-100 space-y-2    w-1/2">
+            <div className="bgamber-100 space-y-2    md:w-1/2">
               {/* ratings  */}
               <legend className="fieldset-legend ">Ratings</legend>
               <input

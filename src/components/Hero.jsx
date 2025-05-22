@@ -21,7 +21,7 @@ const images = [
 ];
 
 const Hero = () => {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [current, setCurrent] = useState(0);
   const [show, setShow] = useState(true);
   const desktopControls = useAnimation();
@@ -39,7 +39,7 @@ const Hero = () => {
     // mobileControls
     mobileControls.start({
       x: 100,
-      y: -200,
+      y: -210,
       scale: 1,
       transition: { duration: 0.5, bounce: 1, delay: 0.4 },
     });
@@ -47,15 +47,15 @@ const Hero = () => {
     // mobileControls2
     mobileControls2.start({
       x: 0,
-      y: 200,
+      y: 210,
       scale: 1,
       transition: { duration: 0.5, bounce: 1, delay: 0.4 },
     });
 
     //desktopControls
     desktopControls.start({
-      x: -330,
-      y: -100,
+      x: 100,
+      y: -120,
       scale: 1,
       transition: { duration: 0.5, bounce: 1, delay: 0.4 },
     });
@@ -97,7 +97,7 @@ const Hero = () => {
         </motion.h1>
         {/* image animation  */}
         {/* <figure className="w-full bg-red-500"> */}
-        <AnimatePresence mode="wait" className="">
+        <AnimatePresence mode="wait">
           {show && (
             <motion.img
               key={images[current]}
@@ -119,7 +119,7 @@ const Hero = () => {
         <motion.div
           initial={{ scale: 0, y: 100 }}
           animate={{ scale: 1, y: 0 }}
-          className="absolute  right-1 left-1  md:-left-60 -bottom-[360px] md:-bottom-52  backdrop-blur-md max-w-fit  border border-[#cccccc46] md:border-0 md:max-w-md px-2 md:px-5 py-2  md:py-3 rounded-xl z-20"
+          className="absolute  right-1 left-1 lg:left-20  md:-left-60 -bottom-[360px] md:-bottom-52  backdrop-blur-md max-w-fit  border border-[#cccccc46] md:border-0 md:max-w-md px-2 md:px-5 py-2  md:py-3 rounded-xl z-20"
         >
           <p>
             A user-friendly recipe book app offering a variety of healthy,
