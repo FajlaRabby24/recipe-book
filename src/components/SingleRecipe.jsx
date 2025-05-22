@@ -8,7 +8,7 @@ const SingleRecipe = ({ recipe }) => {
     <div className="border rounded-lg border-[#cccccc8c]">
       <figure>
         <img
-          className="w-full rounded-lg h-[270px] object-cover"
+          className="w-full rounded-lg max-h-[350px] md:h-[270px] object-cover"
           src={image}
           alt="recipe image"
         />

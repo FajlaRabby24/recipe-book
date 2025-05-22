@@ -24,7 +24,9 @@ const MyRecipe = () => {
 
   return (
     <div className="pt-16 px-3 pb-48">
-      <h1 className="text-2xl font-semibold mb-4 md:mb-8">My Recipe</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold mb-4 lg:mb-8">
+        My Recipe
+      </h1>
       <div className="grid grid-cols-1 gap-4">
         {myRecipes.map((recipe) => (
           <MyRecipeDetails

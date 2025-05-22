@@ -29,11 +29,6 @@ const Hero = () => {
   const mobileControls = useAnimation();
   const mobileControls2 = useAnimation();
 
-  // useEffect(() => {
-  //   // return () => window.removeEventListener("resize", checkDevice);
-  // }, []);
-
-  console.log(isMobile);
   useEffect(() => {
     const checkDevice = () => {
       setIsMobile(window.innerWidth <= 768); // or use your preferred breakpoint

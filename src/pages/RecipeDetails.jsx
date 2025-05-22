@@ -53,15 +53,15 @@ const RecipeDetails = () => {
       >
         <MdKeyboardArrowLeft size={15} /> Back
       </button>
-      <div className=" border  border-[#cccccca0] rounded-lg flex flex-col lg:flex-row gap-4  lg:gap-8">
-        <figure className="lg:w-1/3">
+      <div className=" border border-[#cccccca0] rounded-lg  flex flex-col md:flex-row md:gap-2 8">
+        <figure className="lg:w-1/3 ">
           <img
             src={image}
-            className="w-full rounded-lg object-cover h-full"
+            className="md:max-w-[354px]  lg:min-w-full w-full  rounded-lg h-full l:max-h-[350px] md:min-w-[354px] min-h-[350px] object-cover "
             alt="recipe image"
           />
         </figure>
-        <div className="lg:w-2/3 px-2 pb-5 lg:py-5  lg:pr-5 space-y-2 ">
+        <div className="lg:w-2/3 px-2 pt-5 pb-5 md:py-5  lg:pr-5 space-y-2 ">
           <div className="flex items-center flex-wrap gap-3 lg:gap-10">
             <h1 className="text-2xl font-semibold">{title}</h1>{" "}
             <p

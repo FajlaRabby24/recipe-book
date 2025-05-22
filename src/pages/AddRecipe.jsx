@@ -82,7 +82,7 @@ const AddRecipe = () => {
         onSubmit={handleAddRecipe}
         className=" border border-[#cccccc9c] rounded-lg px-2 md:px-4 py-3 "
       >
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col md:flex-row gap-5">
           <div className="bg-mber-100 md:w-1/2">
             {/* title  */}
             <legend className="fieldset-legend ">Title</legend>
