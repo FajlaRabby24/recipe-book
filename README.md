@@ -1,12 +1,42 @@
-# React + Vite
+# 🍲 Recipe Book App - Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live Site: [](https://recipe-book-app-45653.web.app/)
 
-Currently, two official plugins are available:
+## 📌 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The Recipe Book App is a fully-featured recipe sharing platform. Users can browse top recipes, add their own, like recipes, and manage their personal collection. It includes animations, tooltips, dark/light mode, and secure access through Firebase authentication.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Features
+
+- 🔐 **Authentication**: Email/password & Google login via Firebase.
+- 🔒 **Protected Routes**: Add Recipe, My Recipes, Recipe Details are accessible only to authenticated users.
+- 🌐 **Top Recipes Display**: Shows top 6 most liked recipes dynamically from MongoDB.
+- 📱 **Responsive Design**: Mobile-first responsive layout.
+- 🌓 **Dark/Light Mode Toggle**.
+- 💾 **Like Button**: Incremental like functionality (client-controlled or server-integrated).
+- 🍽️ **Filter by Cuisine Type**.
+- 🎬 **React-simple-typewriter** and 🎯 **React Tooltips**.
+- ✅ **Toast Notifications** and 🎉 **SweetAlert2** confirmations.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend:
+
+- **React 19**
+- **React Router v7**
+- **Tailwind CSS** + **DaisyUI**
+- **Vite**
+- **Firebase Auth**
+- **React-simple-typewritert**, **React-toastify**, **SweetAlert2**, **React-tooltip**, **React-icons**
+
+### Animations & Utilities:
+
+- **Motion**
+- **Date-fns**
+- **React Simple Typewriter**
+
+---
