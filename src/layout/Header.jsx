@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { CiLight } from "react-icons/ci";
 import logo from "../assets/images/logo.png";
@@ -7,9 +7,11 @@ import { AuthContext } from "../store/contexts";
 import { toast } from "react-toastify";
 import defaultUser from "../assets/images/defaultUser.png";
 import { Tooltip } from "react-tooltip";
+import { getTheme, saveTheme } from "../utilities/saveThemeInLS";
 
 const Header = () => {
   const { user, signOutUser } = use(AuthContext);
+  const [isLightMood, setIsLightMood] = useState(false);
 
   const links = (
     <div className="flex flex-col lg:flex-row  items-center gap-4">
@@ -52,6 +54,19 @@ const Header = () => {
         toast.error("Something wrong! Please try again?");
       });
   };
+
+  const handleTheme = () => {
+    const newTheme = isLightMood ? "dark" : "light";
+    setIsLightMood(!isLightMood);
+    document.documentElement.setAttribute("data-theme", newTheme);
+    saveTheme(newTheme);
+  };
+
+  useEffect(() => {
+    const savedTheme = getTheme() || "light";
+    setIsLightMood(savedTheme === "light");
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  }, []);
 
   return (
     <nav className="navbar px-3   max-w-7xl mx-auto  items-center ">
@@ -103,10 +118,14 @@ const Header = () => {
           className="swap swap-rotate "
         >
           {/* this hidden checkbox controls the state */}
-          <input type="checkbox" className="theme-controller" value="light" />
+          <input
+            type="checkbox"
+            onChange={handleTheme}
+            checked={!isLightMood}
+          />
           {/* sun icon */}
           <svg
-            className="swap-off h-8 w-8 fill-current"
+            className={`swap-off h-8 w-8 fill-current`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -115,7 +134,7 @@ const Header = () => {
 
           {/* moon icon */}
           <svg
-            className="swap-on h-8 w-8 fill-current"
+            className={`swap-on h-8 w-8 fill-current`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

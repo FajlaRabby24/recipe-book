@@ -3,6 +3,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { Tooltip } from "react-tooltip";
 import Loading from "../components/Loading";
+import { useState } from "react";
 
 const MainLayout = () => {
   const navigation = useNavigation();

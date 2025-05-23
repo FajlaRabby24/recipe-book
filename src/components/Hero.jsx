@@ -73,10 +73,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div
-      className="min-h-screen lg:h-[calc(80vh-65px)] flex -mt-24 items-center md:justify-center"
-      style={{ overflowX: "hidden" }}
-    >
+    <div className="min-h-screen lg:max-h-[calc(80vh-65px)] hide-scrollbar flex -mt-24 items-center md:justify-center">
       <div className="relative w-full">
         {/* Title 1 */}
         <motion.h1

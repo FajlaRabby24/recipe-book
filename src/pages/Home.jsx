@@ -8,7 +8,7 @@ import Feedback from "../layout/Feedback";
 const Home = () => {
   const topRecipes = useLoaderData();
   return (
-    <div className="flex flex-col gap-52">
+    <div className="flex flex-col gap-52" style={{ overflowX: "hidden" }}>
       <Hero />
       <TopRecipes topRecipes={topRecipes} />
       <VegiesFood />
