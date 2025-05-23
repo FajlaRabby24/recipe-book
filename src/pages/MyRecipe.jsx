@@ -1,13 +1,13 @@
-import React from "react";
-import { use } from "react";
-import { AuthContext } from "../store/contexts";
-import { useEffect } from "react";
-import { useState } from "react";
-import SingleRecipe from "../components/SingleRecipe";
-import RecipeDetails from "./RecipeDetails";
+import { use, useEffect, useState } from "react";
 import MyRecipeDetails from "../components/MyRecipeDetails";
+import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
+import { AuthContext } from "../store/contexts";
 
 const MyRecipe = () => {
+  useTitle("My recipe");
+  useScrollToTop();
+
   const { user } = use(AuthContext);
   const [myRecipes, setMYRecipes] = useState([]);
   useEffect(() => {

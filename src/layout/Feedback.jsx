@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
-import SingleFeedback from "../components/SingleFeedback";
-import HomePageSingleFeedback from "../components/HomePageSingleFeedback";
-import { Link } from "react-router";
+import { useEffect, useState } from "react";
 import { MdFeedback } from "react-icons/md";
+import { Link } from "react-router";
+import HomePageSingleFeedback from "../components/HomePageSingleFeedback";
 
 const Feedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);

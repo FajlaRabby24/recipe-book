@@ -1,7 +1,6 @@
-import React from "react";
-import veggie from "../assets/images/veggie.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { Typewriter } from "react-simple-typewriter";
+import veggie from "../assets/images/veggie.jpg";
 
 const words = [
   "Veggie Food Goes On",

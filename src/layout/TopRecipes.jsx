@@ -1,6 +1,5 @@
-import React from "react";
-import SingleRecipe from "../components/SingleRecipe";
 import { Link } from "react-router";
+import SingleRecipe from "../components/SingleRecipe";
 
 const TopRecipes = ({ topRecipes }) => {
   return (

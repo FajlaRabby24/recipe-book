@@ -1,8 +1,6 @@
-import React, { use, useState } from "react";
+import { format } from "date-fns";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
-import { AuthContext } from "../store/contexts";
-import { format } from "date-fns";
 
 const customStyles = {
   content: {
@@ -20,7 +18,6 @@ const customStyles = {
 const AddFeedbackDiolog = ({ isModalOpen, setIsModalOpen, recipe }) => {
   const { title, image, email } = recipe;
   const creationTime = format(new Date(), "E, p, PP");
-  //   console.log(recipe);
 
   function closeModal() {
     setIsModalOpen(false);

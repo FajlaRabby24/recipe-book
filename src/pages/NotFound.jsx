@@ -1,8 +1,10 @@
-import React from "react";
-import notFoundImg from "../assets/images/notFound.jpg";
 import { Link } from "react-router";
+import notFoundImg from "../assets/images/notFound.jpg";
+import useTitle from "../hooks/useTitle";
 
 const NotFound = () => {
+  useTitle("Error");
+
   return (
     <div
       className="hero min-h-screen"

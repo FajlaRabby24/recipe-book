@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLoaderData } from "react-router";
-import SingleRecipe from "../components/SingleRecipe";
 import NoRecipe from "../components/NoRecipe";
+import SingleRecipe from "../components/SingleRecipe";
 import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
 
 const AllRecipe = () => {
   const initialAllRecipe = useLoaderData();
   const [allRecipe, setAllRecipe] = useState(initialAllRecipe);
   const [noRecipe, setNoRecipe] = useState(false);
 
+  useTitle("All recipe");
   useScrollToTop();
 
   const handleFilterCuisine = (e) => {

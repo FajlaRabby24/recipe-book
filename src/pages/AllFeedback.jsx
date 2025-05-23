@@ -1,8 +1,12 @@
-import React from "react";
 import { useLoaderData } from "react-router";
 import SingleFeedback from "../components/SingleFeedback";
+import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
 
 const AllFeedback = () => {
+  useTitle("Feedback");
+  useScrollToTop();
+
   const intialFeedbacks = useLoaderData();
   return (
     <div className="pt-12 pb-24 px-3">

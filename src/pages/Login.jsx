@@ -1,10 +1,15 @@
-import React, { use, useState } from "react";
+import { use, useState } from "react";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { AuthContext } from "../store/contexts";
-import { toast } from "react-toastify";
 import { Link, useLocation, useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
+import { AuthContext } from "../store/contexts";
 
 const Login = () => {
+  useTitle("Login");
+  useScrollToTop();
+
   const [showPass, setShowPass] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -23,7 +28,6 @@ const Login = () => {
       .catch((error) => {
         toast.error("Something wrong! Please try again?");
       });
-    console.log(email, password);
   };
 
   // sign in with google

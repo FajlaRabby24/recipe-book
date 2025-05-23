@@ -1,11 +1,13 @@
-import React from "react";
-import Hero from "../components/Hero";
-import TopRecipes from "../layout/TopRecipes";
 import { useLoaderData } from "react-router";
-import VegiesFood from "../layout/VegiesFood";
+import Hero from "../components/Hero";
+import useTitle from "../hooks/useTitle";
 import Feedback from "../layout/Feedback";
+import TopRecipes from "../layout/TopRecipes";
+import VegiesFood from "../layout/VegiesFood";
 
 const Home = () => {
+  useTitle("Recipe Book");
+
   const topRecipes = useLoaderData();
   return (
     <div className="flex flex-col gap-52" style={{ overflowX: "hidden" }}>

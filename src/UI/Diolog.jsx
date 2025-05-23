@@ -1,10 +1,9 @@
-import React, { use, useState } from "react";
+import { format } from "date-fns";
+import { use, useState } from "react";
+import { FaArrowLeft } from "react-icons/fa";
 import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { AuthContext } from "../store/contexts";
-import { format } from "date-fns";
-import { MdCancel } from "react-icons/md";
-import { FaArrowLeft } from "react-icons/fa";
 
 const customStyles = {
   content: {

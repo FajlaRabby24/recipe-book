@@ -1,9 +1,8 @@
-import logo from "../assets/images/logo.png";
-import React, { useEffect, useState } from "react";
-import { FaFacebookF } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
-import { IoLogoYoutube } from "react-icons/io";
+import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
+import { IoLogoYoutube } from "react-icons/io";
+import logo from "../assets/images/logo.png";
 
 const Footer = () => {
   return (

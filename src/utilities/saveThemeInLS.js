@@ -11,4 +11,4 @@ const saveTheme = (theme) => {
   localStorage.setItem("theme", setTheme);
 };
 
-export { saveTheme, getTheme };
+export { getTheme, saveTheme };

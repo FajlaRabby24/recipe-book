@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-import { AuthContext } from "./contexts";
 import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
@@ -8,7 +6,9 @@ import {
   signInWithPopup,
   signOut,
 } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { auth } from "../firebase/firebase.config";
+import { AuthContext } from "./contexts";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthPrivider = ({ children }) => {

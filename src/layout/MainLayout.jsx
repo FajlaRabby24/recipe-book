@@ -1,9 +1,8 @@
 import { Outlet, useLocation, useNavigation } from "react-router";
-import Header from "./Header";
-import Footer from "./Footer";
 import { Tooltip } from "react-tooltip";
 import Loading from "../components/Loading";
-import { useState } from "react";
+import Footer from "./Footer";
+import Header from "./Header";
 
 const MainLayout = () => {
   const navigation = useNavigation();

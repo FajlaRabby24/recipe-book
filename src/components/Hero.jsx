@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useEffect, useState } from "react";
+import biryani from "../assets/images/biryani.png";
+import butter from "../assets/images/butter.png";
 import chicken from "../assets/images/chicken.png";
 import fruits from "../assets/images/fruits.png";
-import salad from "../assets/images/salad.png";
 import noddles from "../assets/images/noddles.png";
-import biryani from "../assets/images/biryani.png";
+import salad from "../assets/images/salad.png";
 import stick from "../assets/images/stick.png";
-import butter from "../assets/images/butter.png";
 
 const images = [chicken, fruits, salad, noddles, biryani, butter, stick];
 
@@ -73,7 +73,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="min-h-screen lg:max-h-[calc(80vh-65px)] hide-scrollbar flex -mt-24 items-center md:justify-center">
+    <div className="min-h-[calc(100vh-65px)] -mt-20 lg:mt-0  hide-scrollbar flex items-center md:justify-center">
       <div className="relative w-full">
         {/* Title 1 */}
         <motion.h1

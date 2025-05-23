@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { FaEdit } from "react-icons/fa";
 import { FcLike } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
-import { FaEdit } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
 import Swal from "sweetalert2";
 import Dialog from "../UI/Diolog";
-import { Tooltip } from "react-tooltip";
 
 const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

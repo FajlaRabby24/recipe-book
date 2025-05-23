@@ -1,6 +1,5 @@
-import React from "react";
-import { Link } from "react-router";
 import { FcLike } from "react-icons/fc";
+import { Link } from "react-router";
 
 const SingleRecipe = ({ recipe }) => {
   const { _id, image, cuisine, title, like, preparationTime } = recipe;

@@ -1,5 +1,3 @@
-import React from "react";
-
 const NoRecipe = () => {
   return (
     <div className="flex justify-center pt-16">

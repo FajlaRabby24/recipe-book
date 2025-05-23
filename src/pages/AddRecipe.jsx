@@ -1,8 +1,9 @@
-import React, { use, useState } from "react";
-import { AuthContext } from "../store/contexts";
 import { format } from "date-fns";
+import { use, useState } from "react";
 import { toast } from "react-toastify";
 import useScrollToTop from "../hooks/useScrollToTop";
+import useTitle from "../hooks/useTitle";
+import { AuthContext } from "../store/contexts";
 
 const AddRecipe = () => {
   const { user } = use(AuthContext);
@@ -11,6 +12,7 @@ const AddRecipe = () => {
   const categories = ["Breakfast", "lunch", "Dinner", "Vegan", "Desser"];
 
   useScrollToTop();
+  useTitle("Add recipe");
 
   const handleCheckboxChange = (e) => {
     const { value, checked } = e.target;

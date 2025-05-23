@@ -1,12 +1,10 @@
-import React, { use, useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
-import { CiLight } from "react-icons/ci";
-import logo from "../assets/images/logo.png";
-import { MdDarkMode } from "react-icons/md";
-import { AuthContext } from "../store/contexts";
 import { toast } from "react-toastify";
-import defaultUser from "../assets/images/defaultUser.png";
 import { Tooltip } from "react-tooltip";
+import defaultUser from "../assets/images/defaultUser.png";
+import logo from "../assets/images/logo.png";
+import { AuthContext } from "../store/contexts";
 import { getTheme, saveTheme } from "../utilities/saveThemeInLS";
 
 const Header = () => {

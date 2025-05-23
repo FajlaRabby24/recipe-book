@@ -1,14 +1,17 @@
-import React, { use, useState } from "react";
+import { use, useState } from "react";
 import { FcLike } from "react-icons/fc";
+import { MdKeyboardArrowLeft, MdOutlineRateReview } from "react-icons/md";
 import { useLoaderData, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import useScrollToTop from "../hooks/useScrollToTop";
 import useTitle from "../hooks/useTitle";
-import { MdKeyboardArrowLeft } from "react-icons/md";
-import { MdOutlineRateReview } from "react-icons/md";
 import { AuthContext } from "../store/contexts";
 import AddFeedbackDiolog from "../UI/AddFeedbackDiolog";
 
 const RecipeDetails = () => {
+  useTitle("Recipe details");
+  useScrollToTop();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const { user } = use(AuthContext);
@@ -44,9 +47,10 @@ const RecipeDetails = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log("after patch", data);
+        if (data.modifiedCount) {
+          toast.success("Thanks for your feedback");
+        }
       });
-    console.log("after", liked);
   };
 
   const handleModal = () => {
