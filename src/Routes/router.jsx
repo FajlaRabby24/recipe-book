@@ -20,7 +20,8 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch(`http://localhost:5000/top-recipes`),
+        loader: () =>
+          fetch(`https://recipe-book-server-mocha.vercel.app/top-recipes`),
       },
       {
         path: "login",
@@ -33,7 +34,8 @@ export const router = createBrowserRouter([
       {
         path: "all-recipe",
         Component: AllRecipe,
-        loader: () => fetch("http://localhost:5000/all-recipe"),
+        loader: () =>
+          fetch("https://recipe-book-server-mocha.vercel.app/all-recipe"),
       },
       {
         path: "my-recipe",
@@ -53,7 +55,8 @@ export const router = createBrowserRouter([
       },
       {
         path: "allFeedback",
-        loader: () => fetch(`http://localhost:5000/feedbacks`),
+        loader: () =>
+          fetch(`https://recipe-book-server-mocha.vercel.app/feedbacks`),
         element: (
           <PrivateRoute>
             <AllFeedback />
@@ -64,7 +67,9 @@ export const router = createBrowserRouter([
       {
         path: "recipe/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/recipe/${params.id}`),
+          fetch(
+            `https://recipe-book-server-mocha.vercel.app/recipe/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <RecipeDetails />

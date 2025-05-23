@@ -36,9 +36,12 @@ const RecipeDetails = () => {
     const newLikeCount = liked + 1;
     setLiked(newLikeCount);
 
-    fetch(`http://localhost:5000/update-like/${id}?like=${newLikeCount}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://recipe-book-server-mocha.vercel.app/update-like/${id}?like=${newLikeCount}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("after patch", data);
@@ -49,8 +52,6 @@ const RecipeDetails = () => {
   const handleModal = () => {
     setIsModalOpen(true);
   };
-
-  console.log(isModalOpen);
 
   return (
     <div className="px-3 pb-40  pt-10 ">
@@ -119,13 +120,21 @@ const RecipeDetails = () => {
             Creation time:{" "}
             <span className="font-normal text-[#787777]">{creationTime}</span>
           </p>
-          <div className="flex items-center gap-2">
+          {recipe?.updatedTime && (
+            <p className="font-semibold">
+              Last update:{" "}
+              <span className="font-normal text-[#787777]">
+                {recipe?.updatedTime}
+              </span>
+            </p>
+          )}
+          <div className="flex items-center mt-4 gap-2">
             <button
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Like this recipe"
               disabled={isOwnRecipe}
               onClick={() => handleLike(_id)}
-              className="btn"
+              className="btn btn-error btn-outline"
             >
               <FcLike size={20} /> Like
             </button>
@@ -134,7 +143,7 @@ const RecipeDetails = () => {
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Add a feedback"
               disabled={isOwnRecipe}
-              className="btn"
+              className="btn btn-warning"
             >
               <MdOutlineRateReview size={20} />
               Add feedback

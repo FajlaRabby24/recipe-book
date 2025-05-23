@@ -3,12 +3,13 @@ import Modal from "react-modal";
 import { toast } from "react-toastify";
 import { AuthContext } from "../store/contexts";
 import { format } from "date-fns";
+import { MdCancel } from "react-icons/md";
+import { FaArrowLeft } from "react-icons/fa";
 
 const customStyles = {
   content: {
     top: "50%",
     left: "50%",
-    width: "1000px",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
@@ -70,7 +71,7 @@ const Dialog = ({ isModalOpen, setIsModalOpen, recipe }) => {
       selectedCategories: updatedCategories,
     };
 
-    fetch(`http://localhost:5000/update-recipe/${_id}`, {
+    fetch(`https://recipe-book-server-mocha.vercel.app/update-recipe/${_id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedRecipe),
@@ -100,52 +101,51 @@ const Dialog = ({ isModalOpen, setIsModalOpen, recipe }) => {
   }
 
   return (
-    <div>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-      >
-        <h1 className="text-3xl pb-5 font-semibold text-center">
+    <Modal
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+    >
+      <div className="bg-base-100  rounded-lg w-[95vw] max-w-5xl p-4 md:p-6 overflow-y-auto max-h-[90vh]">
+        <h1 className="text-2xl md:text-3xl pt-5 pb-6 font-semibold text-center">
           Update Recipe
         </h1>
         <form
-          className=" border border-[#cccccc9c] rounded-lg  px-4 py-3"
+          className="border border-[#cccccc9c] rounded-lg px-3 md:px-6 py-3 space-y-4"
           onSubmit={handleAUpdateRecipe}
         >
-          <div className="flex gap-5">
-            <div className="bg-mber-100 w-1/2">
-              {/* title  */}
-              <legend className="fieldset-legend ">Title</legend>
+          <div className="flex flex-col md:flex-row gap-6">
+            {/* Left Side */}
+            <div className="w-full md:w-1/2 space-y-2">
+              <legend className="fieldset-legend">Title</legend>
               <input
                 type="text"
                 required
                 name="title"
                 defaultValue={title}
-                className="input w-full"
+                className="input input-bordered w-full"
                 placeholder="Title..."
               />
-              {/* Cuisine  type  */}
-              <legend className="fieldset-legend ">Cuisine type</legend>
+
+              <legend className="fieldset-legend">Cuisine type</legend>
               <select
                 name="cuisine"
                 defaultValue={cuisine}
-                className="select w-full"
+                className="select select-bordered w-full"
               >
                 <option disabled={true}>Cuisine type</option>
-                <option value={"Italian"}>Italian</option>
-                <option value={"Mexican"}>Mexican</option>
-                <option value={"Chinese"}>Chinese</option>
-                <option value={"Bangladesh"}>Bangladesh</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Bangladesh">Bangladesh</option>
               </select>
 
-              {/* Categories    */}
-              <legend className="fieldset-legend mt-2">Categories </legend>
-              <fieldset className="space-x-2 w-full">
+              <legend className="fieldset-legend">Categories</legend>
+              <fieldset className="space-x-2 flex flex-wrap gap-2">
                 {categories.map((category) => (
-                  <label key={category} className="cursor-pointer">
+                  <label key={category} className="cursor-pointer text-sm">
                     <input
-                      className="checkbox mr-1  checkbox-primary checkbox-xs"
+                      className="checkbox mr-1 checkbox-primary checkbox-xs"
                       type="checkbox"
                       value={category}
                       defaultChecked={selectedCategories.includes(category)}
@@ -154,20 +154,21 @@ const Dialog = ({ isModalOpen, setIsModalOpen, recipe }) => {
                     {category}
                   </label>
                 ))}
-                {error && <p className="text-red-500">{error}</p>}
+                {error && <p className="text-red-500 text-sm">{error}</p>}
               </fieldset>
-              {/* Instructions  */}
-              <legend className="fieldset-legend mt-2">Instructions</legend>
+
+              <legend className="fieldset-legend">Instructions</legend>
               <textarea
                 required
                 name="instructions"
-                className="textarea h-20 w-full resize-none"
+                className="textarea textarea-bordered h-24 w-full resize-none"
                 placeholder="Instructions...."
                 defaultValue={instructions}
               ></textarea>
             </div>
-            <div className="bgamber-100 w-1/2">
-              {/* image  */}
+
+            {/* Right Side */}
+            <div className="w-full md:w-1/2 space-y-2">
               <legend className="fieldset-legend">Image</legend>
               <input
                 type="url"
@@ -175,46 +176,53 @@ const Dialog = ({ isModalOpen, setIsModalOpen, recipe }) => {
                 required
                 placeholder="https://"
                 defaultValue={image}
-                className="input w-full"
+                className="input input-bordered w-full"
                 pattern="^(https?://)?([a-zA-Z0-9]([a-zA-Z0-9\-].*[a-zA-Z0-9])?\.)+[a-zA-Z].*$"
                 title="Must be valid URL"
               />
-              {/* preparation time  */}
-              <legend className="fieldset-legend mt-2">Preparation time</legend>
+
+              <legend className="fieldset-legend">Preparation time</legend>
               <input
                 type="number"
                 required
                 name="preparationtime"
                 defaultValue={preparationTime}
-                className="input w-full"
+                className="input input-bordered w-full"
                 placeholder="Preparation time..."
               />
-              {/* like  */}
-              <legend className="fieldset-legend mt-2">Like</legend>
+
+              <legend className="fieldset-legend">Like</legend>
               <input
                 type="text"
                 value={like}
                 name="like"
-                className="input w-full"
+                className="input input-bordered w-full"
                 readOnly
               />
-              {/* Ingredients  */}
-              <legend className="fieldset-legend mt-2">Ingredients</legend>
+
+              <legend className="fieldset-legend">Ingredients</legend>
               <textarea
                 required
                 name="ingredients"
-                className="textarea h-20 w-full resize-none"
+                className="textarea textarea-bordered h-24 w-full resize-none"
                 placeholder="Ingredients"
                 defaultValue={ingredients}
               ></textarea>
             </div>
           </div>
-          <button className="btn btn-block mt-5 btn-warning ">
+
+          <button className="btn btn-block mt-4 btn-warning">
             Update Recipe
           </button>
         </form>
-      </Modal>
-    </div>
+        <button
+          onClick={() => setIsModalOpen(false)}
+          className="cursor-pointer bg-warning  btn  absolute top-13 left-10"
+        >
+          <FaArrowLeft size={20} />
+        </button>
+      </div>
+    </Modal>
   );
 };
 

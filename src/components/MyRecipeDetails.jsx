@@ -30,7 +30,7 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/recipe/${id}`, {
+        fetch(`https://recipe-book-server-mocha.vercel.app/recipe/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -107,7 +107,7 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Delete recipe"
             onClick={() => handleDeleteRecipe(_id)}
-            className="btn"
+            className="btn btn-outline btn-warning"
           >
             <MdDelete size={20} /> Delete
           </button>
@@ -115,7 +115,7 @@ const MyRecipeDetails = ({ recipe, handleDeleteRecipeInUI }) => {
             data-tooltip-id="my-tooltip"
             data-tooltip-content="Update recipe"
             onClick={handleModal}
-            className="btn"
+            className="btn btn-warning"
           >
             <FaEdit size={20} /> Update
           </button>

@@ -7,8 +7,11 @@ const words = [
   "Veggie Food Goes On",
   "Greens fuel your life",
   "Eat plants, stay strong",
-  "Eat plants, stay strong",
-  "Nature's gifts taste best.",
+  "Nature's gifts taste best",
+  "Go green, live clean",
+  "Wholesome food, happy body",
+  "Veg power never ends",
+  "Fresh food, fresh mind",
 ];
 
 const VegiesFood = () => {
@@ -17,8 +20,7 @@ const VegiesFood = () => {
       {/* content  */}
       <div className="space-y-3 lg:space-y-5 px-3 md:pl-2 ">
         <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl md:font-semibold mb-3 leading-10 md:leading-12 lg:leading-16">
-          |
-          <Typewriter loop={true} words={words} />
+          | <Typewriter loop={true} words={words} />
         </h1>
         <p>
           Veggie Food Goes On And Always On" celebrates the endless journey of

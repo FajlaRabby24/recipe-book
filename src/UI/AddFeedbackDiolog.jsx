@@ -9,6 +9,7 @@ const customStyles = {
     top: "50%",
     left: "50%",
     // width: "1000px",
+    padding: "0",
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
@@ -31,7 +32,7 @@ const AddFeedbackDiolog = ({ isModalOpen, setIsModalOpen, recipe }) => {
     const feedback = e.target.feedback.value;
     const newFeedback = { rating, feedback, title, image, email, creationTime };
 
-    fetch(`http://localhost:5000/add-feedback`, {
+    fetch(`https://recipe-book-server-mocha.vercel.app/add-feedback`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newFeedback),
@@ -46,13 +47,13 @@ const AddFeedbackDiolog = ({ isModalOpen, setIsModalOpen, recipe }) => {
   };
 
   return (
-    <div>
-      <Modal
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        style={customStyles}
-      >
-        <h1 className="text-3xl pb-5 font-semibold text-center">
+    <Modal
+      isOpen={isModalOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+    >
+      <div className="bg-base-100 px-2 pb-3">
+        <h1 className="text-3xl py-5 font-semibold text-center">
           Add Feedback
         </h1>
         <form
@@ -88,8 +89,8 @@ const AddFeedbackDiolog = ({ isModalOpen, setIsModalOpen, recipe }) => {
             Add feedback
           </button>
         </form>
-      </Modal>
-    </div>
+      </div>
+    </Modal>
   );
 };
 

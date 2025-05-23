@@ -12,7 +12,7 @@ const Header = () => {
   const { user, signOutUser } = use(AuthContext);
 
   const links = (
-    <div className="flex flex-col md:flex-row  items-center gap-4">
+    <div className="flex flex-col lg:flex-row  items-center gap-4">
       <li>
         <NavLink className={"font-semibold"} to={"/"}>
           Home
@@ -54,7 +54,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar px-3   max-w-7xl mx-auto items-center ">
+    <nav className="navbar px-3   max-w-7xl mx-auto  items-center ">
       <Tooltip id="my-tooltip" />
       <div className="navbar-start">
         <div className="dropdown">

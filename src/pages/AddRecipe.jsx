@@ -54,7 +54,7 @@ const AddRecipe = () => {
       creationTime,
     };
 
-    fetch("http://localhost:5000/add-recipe", {
+    fetch("https://recipe-book-server-mocha.vercel.app/add-recipe", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newRecipe),
@@ -63,7 +63,7 @@ const AddRecipe = () => {
       .then((data) => {
         if (data.insertedId) {
           toast.success("Recipe added successfully!");
-          // form.reset();
+          form.reset();
         }
       });
   };

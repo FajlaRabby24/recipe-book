@@ -11,7 +11,9 @@ const MyRecipe = () => {
   const { user } = use(AuthContext);
   const [myRecipes, setMYRecipes] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/my-recipe?email=${user?.email}`)
+    fetch(
+      `https://recipe-book-server-mocha.vercel.app/my-recipe?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setMYRecipes(data);

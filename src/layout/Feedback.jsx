@@ -9,7 +9,7 @@ const Feedback = () => {
   const [isMoreThenThree, setIsMoreThenThree] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/feedbacks`)
+    fetch(`https://recipe-book-server-mocha.vercel.app/feedbacks`)
       .then((res) => res.json())
       .then((data) => {
         // setFeedbacks(data);

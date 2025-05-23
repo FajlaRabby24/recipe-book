@@ -15,21 +15,17 @@ const FeedbackImageDiolog = ({ isModalOpen, setIsModalOpen, eachfeedback }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsModalOpen(false)}
-          >
-            <button className="bg-red-600">
-              <MdCancel />
-            </button>
-          </motion.div>
+          ></motion.div>
 
           {/* Modal Box */}
           <motion.div
-            className="fixed w-full md:w-auto  top-1/2 left-1/2 bg-white p-1 rounded-lg shadow-xl z-50  transform -translate-x-1/2 -translate-y-1/2"
+            className="fixed w-4/5 md:w-auto  top-1/2 left-1/2 bg-white p-1 rounded-lg shadow-xl z-50  transform -translate-x-1/2 -translate-y-1/2"
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <img src={eachfeedback} alt="" />
+            <img className="w-full" src={eachfeedback} alt="" />
             <button
               onClick={() => setIsModalOpen(false)}
               className="cursor-pointer bg-white rounded-full  absolute top-1 right-1"
