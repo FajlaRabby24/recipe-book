@@ -131,7 +131,7 @@ const AddRecipe = () => {
             <textarea
               required
               name="instructions"
-              className="textarea h-20 w-full "
+              className="textarea h-20 w-full resize-none "
               placeholder="Instructions...."
             ></textarea>
           </div>
@@ -172,7 +172,7 @@ const AddRecipe = () => {
             <textarea
               required
               name="ingredients"
-              className="textarea h-20 w-full"
+              className="textarea h-20 w-full resize-none"
               placeholder="Ingredients"
             ></textarea>
           </div>

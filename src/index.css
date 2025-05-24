@@ -13,5 +13,9 @@ body {
   display: none; /* Chrome, Safari, Opera */
 }
 
+a.active {
+  @apply btn-warning btn btn-outline;
+}
+
 @import "tailwindcss";
 @plugin 'daisyui';
