@@ -51,7 +51,14 @@ const AllRecipe = () => {
           </select>
         </div>
       </div>
-      {noRecipe && <NoRecipe />}
+      {noRecipe && (
+        <NoRecipe>
+          <h1 className="text-2xl font-semibold text-center mb-1">
+            No Recipe Found!
+          </h1>
+          <p className="font-semibold">Please choose another Cuisine!</p>
+        </NoRecipe>
+      )}
       {!noRecipe && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {allRecipe.map((recipe) => (

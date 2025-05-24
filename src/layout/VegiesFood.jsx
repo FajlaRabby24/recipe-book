@@ -6,9 +6,7 @@ const words = [
   "Veggie Food Goes On",
   "Greens fuel your life",
   "Eat plants, stay strong",
-  "Nature's gifts taste best",
   "Go green, live clean",
-  "Wholesome food, happy body",
   "Veg power never ends",
   "Fresh food, fresh mind",
 ];
