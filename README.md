@@ -8,6 +8,8 @@
 
 The Recipe Book App is a fully-featured recipe sharing platform. Users can browse top recipes, add their own, like recipes, and manage their personal collection. It includes animations, tooltips, dark/light mode, and secure access through Firebase authentication.
 
+<img src="https://i.ibb.co/4gSKm15m/Screenshot-2025-06-25-143941.png" align="center" style="width: 100%" />
+
 ---
 
 ## 🚀 Features
