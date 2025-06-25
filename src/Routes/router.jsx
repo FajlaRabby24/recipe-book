@@ -19,8 +19,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () =>
-          fetch(`https://recipe-book-server-mocha.vercel.app/top-recipes`),
+        loader: () => fetch(`${VITE_root_api_url}/top-recipes`),
       },
       {
         path: "login",
@@ -33,8 +32,7 @@ export const router = createBrowserRouter([
       {
         path: "all-recipe",
         Component: AllRecipe,
-        loader: () =>
-          fetch("https://recipe-book-server-mocha.vercel.app/all-recipe"),
+        loader: () => fetch(`${VITE_root_api_url}/all-recipe`),
       },
       {
         path: "my-recipe",
@@ -54,8 +52,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "allFeedback",
-        loader: () =>
-          fetch(`https://recipe-book-server-mocha.vercel.app/feedbacks`),
+        loader: () => fetch(`${VITE_root_api_url}/feedbacks`),
         element: (
           <PrivateRoute>
             <AllFeedback />
@@ -66,9 +63,7 @@ export const router = createBrowserRouter([
       {
         path: "recipe/:id",
         loader: ({ params }) =>
-          fetch(
-            `https://recipe-book-server-mocha.vercel.app/recipe/${params.id}`
-          ),
+          fetch(`${VITE_root_api_url}/recipe/${params.id}`),
         element: (
           <PrivateRoute>
             <RecipeDetails />
