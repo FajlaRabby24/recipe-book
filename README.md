@@ -28,8 +28,9 @@ The Recipe Book App is a fully-featured recipe sharing platform. Users can brows
 
 1. Clone the project
 
-bash
+```bash
 git clone https://github.com/FajlaRabby24/recipe-book.git
+```
 
 ---
 
@@ -51,3 +52,16 @@ git clone https://github.com/FajlaRabby24/recipe-book.git
 - **React Simple Typewriter**
 
 ---
+
+## 🔐 Environment Variables
+
+Create a `.env` file and add the following Firebase keys:
+
+```env
+VITE_apiKey=your_api_key
+VITE_authDomain=your_auth_domain
+VITE_projectId=your_project_id
+VITE_storageBucket=your_storage_bucket
+VITE_messagingSenderId=your_sender_id
+VITE_appId=your_app_id
+```
