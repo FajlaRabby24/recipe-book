@@ -1,6 +1,8 @@
 # 🍲 Recipe Book App - Client
 
-Live Site: [](https://recipe-book-app-45653.web.app/)
+## 🌐 Live Site
+
+🔗 [View Live Project](https://recipe-book-app-45653.web.app)
 
 ## 📌 Project Overview
 
