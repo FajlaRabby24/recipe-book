@@ -29,8 +29,7 @@ The Recipe Book App is a fully-featured recipe sharing platform. Users can brows
 1. Clone the project
 
 bash
-git clone https://github.com/FajlaRabby24/recipe-book
-
+git clone https://github.com/FajlaRabby24/recipe-book.git
 
 ---
 
